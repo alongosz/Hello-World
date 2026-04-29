@@ -1,0 +1,16 @@
+name: Mock Regression Target
+
+on:
+  workflow_dispatch:
+    inputs:
+      send-success-notification:
+        description: Mock input expected by regression.rb
+        required: true
+        type: string
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mock run
+        run: echo "Mock workflow executed with send-success-notification='${{ inputs['send-success-notification'] }}'"
